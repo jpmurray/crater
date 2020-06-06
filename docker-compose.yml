@@ -21,10 +21,10 @@ services:
     image: linuxserver/mariadb
     restart: always
     volumes:
-      - db:/var/lib/mysql
+      #db:/var/lib/mysql
       # If you want to persist data on the host, comment the line above this one...
       # and uncomment the line under this one.
-      #- ./docker-compose/db/data:/var/lib/mysql:rw,delegated
+      - ./docker-compose/db/data:/config:rw,delegated
     environment:
       MYSQL_USER: crater
       MYSQL_PASSWORD: crater
@@ -39,7 +39,7 @@ services:
     image: nginx:1.17-alpine
     restart: unless-stopped
     ports:
-      - 80:80
+      - 8010:80
     volumes:
       - ./:/var/www
       - ./docker-compose/nginx:/etc/nginx/conf.d/
