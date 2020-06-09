@@ -18,7 +18,7 @@ services:
       - crater
 
   db:
-    image: mariadb
+    image: linuxserver/mariadb
     restart: always
     volumes:
       - db:/var/lib/mysql
@@ -39,7 +39,7 @@ services:
     image: nginx:1.17-alpine
     restart: unless-stopped
     ports:
-      - 80:80
+      - 8010:80
     volumes:
       - ./:/var/www
       - ./docker-compose/nginx:/etc/nginx/conf.d/
