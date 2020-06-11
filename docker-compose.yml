@@ -31,7 +31,7 @@ services:
       MYSQL_DATABASE: ${DB_DATABASE}
       MYSQL_ROOT_PASSWORD: ${DOCKER_MYSQL_ROOT_PASSWORD}
     ports:
-      - '33006:3306'
+      - ${DOCKER_DATABASE_PORT}:3306
     networks:
       - crater
 
